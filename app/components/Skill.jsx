@@ -17,7 +17,8 @@ export default class Skill extends React.Component {
   }
 
   renderEdit = () => {
-    return <input type="text"
+    return (
+      <input type="text"
       ref={
         element => element ?
         element.selectionStart = this.props.name.length :
@@ -26,7 +27,8 @@ export default class Skill extends React.Component {
       autoFocus={true}
       defaultValue={this.props.name}
       onBlur={this.finishEdit}
-      onKeyPress={this.checkEnter} />;
+      onKeyPress={this.checkEnter} />
+    );
   };
 
   renderSkill = () => {

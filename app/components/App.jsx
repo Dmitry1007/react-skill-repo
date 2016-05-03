@@ -55,12 +55,14 @@ export default class App extends React.Component {
   }
 
   addSkill = () => {
-    this.setState({
-      skills: this.state.skills.concat([{
-        name: 'New Name',
-        details: 'New Details',
-        level: 'ok'
-      }])
+    $.ajax({
+      url: 'http://localhost:3000/api/v1/skills',
+      type: 'POST',
+      data: { skill: { name: 'Skill Name', details: 'Skill Details' } },
+      success: (skill) => {
+        const newState = this.state.skills.concat(skill);
+        this.setState({ skills: newState })
+      }
     });
   }
 }
