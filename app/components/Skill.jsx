@@ -13,7 +13,7 @@ export default class Skill extends React.Component {
     if(this.state.editing) {
       return this.renderEdit();
     }
-    return this.renderNote();
+    return this.renderSkill();
   }
 
   renderEdit = () => {
@@ -29,7 +29,7 @@ export default class Skill extends React.Component {
       onKeyPress={this.checkEnter} />;
   };
 
-  renderNote = () => {
+  renderSkill = () => {
     return (
       <div onClick={this.edit}>
         <span className="name">{this.props.name}</span>
