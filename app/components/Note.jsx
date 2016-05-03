@@ -1,3 +1,3 @@
-import React from 'react';
+// import React from 'react';
 
-export default () => <div>Base React Template</div>;
+// export default () => <div>Base React Template</div>;
