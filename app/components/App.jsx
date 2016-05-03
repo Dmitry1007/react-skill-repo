@@ -20,8 +20,19 @@ export default class App extends React.Component {
     const skills = this.state.skills;
     return (
       <div>
+        <button className="add-skill" onClick={this.addSkill}>Add Skill</button>
         <Skills skills={skills} />
       </div>
     );
+  }
+
+  addSkill = () => {
+    this.setState({
+      skills: this.state.skills.concat([{
+        name: 'New Name',
+        details: 'New Details',
+        level: 'ok'
+      }])
+    });
   }
 }

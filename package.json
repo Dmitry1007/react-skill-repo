@@ -1,7 +1,7 @@
 {
-  "name": "react-webpack-base-boilerplate",
+  "name": "react-skill-repo",
   "version": "1.0.0",
-  "description": "base template/boilerplate for React project that includes hot loading",
+  "description": "React front-end for interacting with rails API and displaying code skills.",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
@@ -21,7 +21,7 @@
     "live",
     "edit",
     "webpack",
-    "template"
+    "skill repo"
   ],
   "author": "Dmitry Vizersky <dmitry.vizer@gmail.com> (http://github.com/dmitry1007)",
   "license": "MIT",
