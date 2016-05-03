@@ -5,7 +5,7 @@ export default ({skills}) => {
   return (
     <ul className="skills">{skills.map(skill =>
       <li className="skill" key={skill.id}>
-        <Skill name={skill.name} />
+        <Skill name={skill.name} details={skill.details} level={skill.level} />
       </li>
     )}</ul>
   );

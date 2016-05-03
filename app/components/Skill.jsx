@@ -4,7 +4,9 @@ export default class Skill extends React.Component {
   render() {
     return (
       <div>
-        <span className="skill">{this.props.name}</span>
+        <span className="skill-name">{this.props.name}</span><br/>
+        <span className="skill-details">{this.props.details}</span><br/>
+        <span className="skill-level">{this.props.level}</span>
       </div>
     )
   }
