@@ -1,6 +1,6 @@
 import React from 'react';
 import $ from 'jquery'
-import Note from './Note.jsx';
+import Skills from './Skills.jsx';
 
 export default class App extends React.Component {
   componentDidMount() {
@@ -17,7 +17,11 @@ export default class App extends React.Component {
   }
 
   render() {
-    // return <Note />;
-    return <div>Base React Template</div>;
+    const skills = this.state.skills;
+    return (
+      <div>
+        <Skills skills={skills} />
+      </div>
+    );
   }
 }
