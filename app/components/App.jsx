@@ -4,9 +4,8 @@ import Skills from './Skills.jsx';
 
 export default class App extends React.Component {
   componentDidMount() {
-    $.getJSON('https://skill-repo.herokuapp.com/api/v1/skills.json', (response) => {
+    $.getJSON('http://localhost:3000/api/v1/skills', (response) => {
       this.setState({ skills: response })
-      console.log(response)
     });
   }
 
@@ -28,17 +27,32 @@ export default class App extends React.Component {
 
   editSkill = (id, name) => {
     // Don't modify if trying to set an empty value
-    if(!name.trim()) {
-      return;
-    }
+    if(!name.trim()) { return; }
+
     const skills = this.state.skills.map(skill => {
-      if(skill.id === id && name) {
+      if(skill.id === id) {
         skill.name = name;
+
+        $.ajax({
+          url: `http://localhost:3000/api/v1/skills/${skill.id}`,
+          type: 'PUT',
+          data: { skill: skill },
+          success: () => {
+            this.updateSkills(skill);
+            // return skill;
+          }
+        });
       }
-      return skill;
     });
-    this.setState({skills});
+    // this.setState({skills});
   };
+
+  updateSkills(skill) {
+    const skills = this.state.skills.filter((s) => { return s.id != skill.id });
+    skills.push(skill);
+
+    this.setState({ skills: skills });
+  }
 
   addSkill = () => {
     this.setState({
