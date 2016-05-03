@@ -1,13 +1,63 @@
 import React from 'react';
 
 export default class Skill extends React.Component {
-  render() {
-    return (
-      <div>
-        <span className="skill-name">{this.props.name}</span><br/>
-        <span className="skill-details">{this.props.details}</span><br/>
-        <span className="skill-level">{this.props.level}</span>
-      </div>
-    )
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      editing: false
+    };
   }
+
+  render() {
+    if(this.state.editing) {
+      return this.renderEdit();
+    }
+    return this.renderNote();
+  }
+
+  renderEdit = () => {
+    return <input type="text"
+      ref={
+        element => element ?
+        element.selectionStart = this.props.name.length :
+        null
+      }
+      autoFocus={true}
+      defaultValue={this.props.name}
+      onBlur={this.finishEdit}
+      onKeyPress={this.checkEnter} />;
+  };
+
+  renderNote = () => {
+    return (
+      <div onClick={this.edit}>
+        <span className="name">{this.props.name}</span>
+      </div>
+    );
+  };
+
+  edit = () => {
+    this.setState({
+      editing: true
+    });
+  };
+
+  checkEnter = (e) => {
+    if(e.key === 'Enter') {
+      this.finishEdit(e);
+    }
+  };
+
+  finishEdit = (e) => {
+    const value = e.target.value;
+
+    if(this.props.onEdit) {
+      this.props.onEdit(value);
+
+      this.setState({
+        editing: false
+      });
+    }
+  };
 }

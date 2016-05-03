@@ -21,10 +21,24 @@ export default class App extends React.Component {
     return (
       <div>
         <button className="add-skill" onClick={this.addSkill}>Add Skill</button>
-        <Skills skills={skills} />
+        <Skills skills={skills} onEdit={this.editSkill} />
       </div>
     );
   }
+
+  editSkill = (id, name) => {
+    // Don't modify if trying to set an empty value
+    if(!name.trim()) {
+      return;
+    }
+    const skills = this.state.skills.map(skill => {
+      if(skill.id === id && name) {
+        skill.name = name;
+      }
+      return skill;
+    });
+    this.setState({skills});
+  };
 
   addSkill = () => {
     this.setState({
