@@ -20,10 +20,27 @@ export default class App extends React.Component {
     return (
       <div>
         <button className="btn btn-primary add-skill" onClick={this.addSkill}>Add Skill</button>
-        <Skills skills={skills} onEdit={this.editSkill} />
+        <Skills skills={skills}
+                onEdit={this.editSkill}
+                onDelete={this.deleteSkill} />
       </div>
     );
   }
+
+  deleteSkill = (id, e) => {
+    e.stopPropagation();
+
+    $.ajax({
+      url: `http://localhost:3000/api/v1/skills/${id}`,
+      type: 'DELETE',
+      success: () => {
+        // this.removeSkillFromDOM(id);
+        this.setState({
+          skills: this.state.skills.filter(skill => skill.id !== id)
+        });
+      }
+    });
+  };
 
   editSkill = (id, name) => {
     // Don't modify if trying to set an empty value
@@ -39,12 +56,10 @@ export default class App extends React.Component {
           data: { skill: skill },
           success: () => {
             this.updateSkills(skill);
-            // return skill;
           }
         });
       }
     });
-    // this.setState({skills});
   };
 
   updateSkills(skill) {
