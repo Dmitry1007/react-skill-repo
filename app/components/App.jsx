@@ -1,5 +1,4 @@
 import React from 'react';
-import $ from 'jquery'
 import Skills from './Skills.jsx';
 
 export default class App extends React.Component {

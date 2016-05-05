@@ -44,6 +44,7 @@
     "jquery": "^2.2.3",
     "react": "^15.0.2",
     "react-bootstrap": "^0.29.3",
-    "react-dom": "^15.0.2"
+    "react-dom": "^15.0.2",
+    "url-loader": "^0.5.7"
   }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import coolImage from '../images/img_1.jpg';
 
 export default class Skill extends React.Component {
   constructor(props) {
@@ -36,6 +37,7 @@ export default class Skill extends React.Component {
 
     return (
       <div onClick={this.edit}>
+        <img src={coolImage} alt="" />
         <span className="name">{this.props.name}</span>
         {onDelete ? this.renderDelete() : null }
       </div>
