@@ -1,9 +1,9 @@
 import './css/main.css';
 import './css/animate.css';
-// import './css/icomoon.css';
+import './css/icomoon.css';
 import './css/magnific-popup.css';
 import './css/salvattore.css';
-// import './css/style.css';
+import './css/style.css';
 
 // import './js/modernizr-2.6.2.min.js'
 import './js/jquery.min.js'
