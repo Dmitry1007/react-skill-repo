@@ -36,8 +36,10 @@ export default class Skill extends React.Component {
     const onDelete = this.props.onDelete;
 
     return (
-      <div onClick={this.edit}>
-        <img src={coolImage} alt="" />
+      <div className="fh5co-desc" onClick={this.edit}>
+        <a href={coolImage} class="image-popup fh5co-board-img" title="">
+          <img src={coolImage} alt="" />
+        </a>
         <span className="name">{this.props.name}</span>
         {onDelete ? this.renderDelete() : null }
       </div>

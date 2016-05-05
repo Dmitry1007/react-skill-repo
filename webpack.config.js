@@ -39,6 +39,29 @@ const common = {
         test: /\.(jpg|png)$/,
         loader: 'url?limit=25000',
         include: PATHS.images
+      },
+      {
+        test: /\.woff$/,
+        loader: 'url',
+        query: {
+          prefix: 'font/',
+          limit: 5000,
+          mimetype: 'application/font-woff'
+        },
+        include: PATHS.fonts
+      },
+      {
+        test: /\.ttf$|\.eot$/,
+        loader: 'file',
+        query: {
+          prefix: 'font/'
+        },
+        include: PATHS.fonts
+      },
+      {
+        test: /\.svg$/,
+        loader: 'file',
+        include: PATHS.images
       }
     ]
   }
