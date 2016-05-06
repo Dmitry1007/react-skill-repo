@@ -3,14 +3,14 @@ import Skill from './Skill.jsx';
 
 export default ({skills, onEdit, onDelete}) => {
   return (
-    <ul className="skills">{skills.map(skill =>
-      <li className="skill" key={skill.id}>
+    <div id="fh5co-board" data-columns="4">{skills.map(skill =>
+      <div className="column size-1of4 skill" key={skill.id}>
         <Skill name={skill.name}
-               details={skill.details}
-               level={skill.level}
-               onEdit={onEdit.bind(null, skill.id)}
-               onDelete={onDelete.bind(null, skill.id)} />
-      </li>
-    )}</ul>
+         details={skill.details}
+         level={skill.level}
+         onEdit={onEdit.bind(null, skill.id)}
+         onDelete={onDelete.bind(null, skill.id)} />
+      </div>
+    )}</div>
   );
 }

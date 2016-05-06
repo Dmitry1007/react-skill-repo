@@ -17,11 +17,11 @@ export default class App extends React.Component {
   render() {
     const skills = this.state.skills;
     return (
-      <div>
+      <div className="row">
         <button className="btn btn-primary add-skill" onClick={this.addSkill}>Add Skill</button>
-        <Skills skills={skills}
-                onEdit={this.editSkill}
-                onDelete={this.deleteSkill} />
+          <Skills skills={skills}
+                  onEdit={this.editSkill}
+                  onDelete={this.deleteSkill} />
       </div>
     );
   }
